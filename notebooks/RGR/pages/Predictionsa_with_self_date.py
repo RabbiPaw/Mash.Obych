@@ -6,7 +6,7 @@ import pickle
 from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error, r2_score
 
 def metrics(y_test, y_pred):
-    return f'"\n" MAE: {mean_absolute_error(y_test, y_pred)}"\n" MSE: {mean_squared_error(y_test, y_pred)} \n RMSE: {(mean_squared_error(y_test, y_pred))**0.5}\n MAPE: {(mean_absolute_percentage_error(y_test, y_pred))**0.5} \n R^2: {r2_score(y_test, y_pred)}'
+    return f'\n MAE: {mean_absolute_error(y_test, y_pred)}\* \n MSE: {mean_squared_error(y_test, y_pred)}\n RMSE: {(mean_squared_error(y_test, y_pred))**0.5}\n MAPE: {(mean_absolute_percentage_error(y_test, y_pred))**0.5} \n R^2: {r2_score(y_test, y_pred)}'
 
 def test_model(X,Y,x, y, model, transformer = None):
 
