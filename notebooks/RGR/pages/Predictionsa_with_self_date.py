@@ -16,14 +16,13 @@ def test_model(x, y, model, transformer = None):
 
 st.set_page_config(page_title = "Предсказание по вашим данным")
 st.title('Предсказание моделей по вашим данным')
-df = pd.DataFrame()
-if st.button("Создать пустую базу данных"):
-    df = pd.DataFrame({"price": [],
-                      "latitude": [],
-                      "longitude": [],
-                      "bathrooms": [],
-                      "status": [],
-                      "furnished_status": []})
+
+df = pd.DataFrame({"price": [],
+                    "latitude": [],
+                    "longitude": [],
+                    "bathrooms": [],
+                    "status": [],
+                    "furnished_status": []})
 
 price = st.number_input("Введите цену")
 
