@@ -16,18 +16,6 @@ def test_model(x, y, model, transformer = None):
 
 st.set_page_config(page_title = "Предсказание по вашим данным")
 st.title('Предсказание моделей по вашим данным')
-def new_dataframe():
-    df = pd.DataFrame({"price": [],
-                        "latitude": [],
-                        "longitude": [],
-                        "bathrooms": [],
-                        "status": [],
-                        "furnished_status": []})
-    return df
-      
-if st.button("Создать пустую базу данных"):
-    df = new_dataframe
-    
 
 price = st.number_input("Введите цену")
 
@@ -56,15 +44,6 @@ elif furnished_status == "Частично обустроен":
     furnished_status = 1
 else:
     furnished_status = 0
-
-st.button("Сброс своей базы данных", type="primary")
-
-if st.button("Добавить данные в собственную базу данных"):
-    data = [price,latitude,longitude,bathrooms,status,furnished_status]
-    df.loc[len(df.index)] = data
-
-if st.button("Показать данные"):
-    st.write(df)
     
 model_name = st.selectbox(
   'Выберите модель машинного обучения', 
@@ -79,6 +58,7 @@ model_name = st.selectbox(
 
 def null(x): return x.empty if type(x) is pd.DataFrame else not x 
 if st.button("Предсказать"):
+    df =np.array([[price,latitude,longitude,bathrooms,status,furnished_status]])
     if model_name and not null(df):
       model = pickle.load(open(f'models/{model_name}.pickle', 'rb'))
 
