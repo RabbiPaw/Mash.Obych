@@ -1,6 +1,7 @@
 import streamlit as st
+from sklearn.model_selection import train_test_split
 import pandas as pd
-import numpy as np
+import pickle
 
 def test_model(x, y, model, transformer = None):
     x = x if not transformer else transformer.fit_transform(x)
