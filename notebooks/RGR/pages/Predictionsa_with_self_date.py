@@ -56,13 +56,13 @@ else:
 
 st.button("Сброс своей базы данных", type="primary")
 
-if st.button("Показать данные"):
-    df.head()
- 
 if st.button("Добавить данные в собственную базу данных"):
     data = [price,latitude,longitude,bathrooms,status,furnished_status]
     df.loc[len(df.index)] = data
 
+if st.button("Показать данные"):
+    st.write(df)
+    
 model_name = st.selectbox(
   'Выберите модель машинного обучения', 
   [None,
