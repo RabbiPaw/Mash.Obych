@@ -15,13 +15,13 @@ def test_model(x, y, model, transformer = None):
     return metrics(y_test, y_pred)
 
 
-
-df = pd.DataFrame({"price": [],
-                "latitude": [],
-                "longitude": [],
-                "bathrooms": [],
-                "status": [],
-                "furnished_status": []})
+if st.button("Создать пустую базу данных"):
+    df = pd.DataFrame({"price": [],
+                    "latitude": [],
+                    "longitude": [],
+                    "bathrooms": [],
+                    "status": [],
+                    "furnished_status": []})
 
 st.set_page_config(page_title = "Предсказание по вашим данным")
 st.title('Предсказание моделей по вашим данным')
