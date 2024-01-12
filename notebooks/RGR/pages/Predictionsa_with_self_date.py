@@ -6,15 +6,9 @@ import pickle
 def test_model(x, y, model, transformer = None):
     x = x if not transformer else transformer.fit_transform(x)
     
-    x_tr, x_test, y_tr, y_test = train_test_split(
-        x, y, test_size=0.2, random_state=42
-    )
-    
-    model = model.fit(x_tr, y_tr)
-    
-    y_pred = model.predict(x_test)
+    y_pred = model.predict(x)
 
-    return metrics(y_test, y_pred)
+    return metrics(y, y_pred)
 
 st.set_page_config(page_title = "Предсказание по вашим данным")
 st.title('Предсказание моделей по вашим данным')
