@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 def test_model(x, y, model, transformer = None):
     x = x if not transformer else transformer.fit_transform(x)
