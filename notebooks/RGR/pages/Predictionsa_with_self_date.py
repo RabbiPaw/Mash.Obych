@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 def new_dataset():
-     df = pd.DataFrame({"price": [],
-                     "latitude": [],
-                     "longitude": [],
-                     "bathrooms": [],
-                     "status": [],
-                     "furnished_status": []})
+      df = pd.DataFrame({"price": [],
+                      "latitude": [],
+                      "longitude": [],
+                      "bathrooms": [],
+                      "status": [],
+                      "furnished_status": []})
       return df
     
 def test_model(x, y, model, transformer = None):
