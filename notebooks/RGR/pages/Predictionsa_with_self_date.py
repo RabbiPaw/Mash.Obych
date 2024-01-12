@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
-
+def new_dataset():
+     df = pd.DataFrame({"price": [],
+                     "latitude": [],
+                     "longitude": [],
+                     "bathrooms": [],
+                     "status": [],
+                     "furnished_status": []})
+      return df
+    
 def test_model(x, y, model, transformer = None):
     x = x if not transformer else transformer.fit_transform(x)
     
@@ -16,15 +24,9 @@ def test_model(x, y, model, transformer = None):
 
 st.set_page_config(page_title = "Предсказание по вашим данным")
 st.title('Предсказание моделей по вашим данным')
-
+df = pd.DataFrame()
 if st.button("Создать пустую базу данных"):
-    df = pd.DataFrame({"price": [],
-                    "latitude": [],
-                    "longitude": [],
-                    "bathrooms": [],
-                    "status": [],
-                    "furnished_status": []})
-
+    df = new_dataset()
 price = st.number_input("Введите цену")
 
 latitude = st.number_input("Введите координаты по широте")
