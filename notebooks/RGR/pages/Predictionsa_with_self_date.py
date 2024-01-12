@@ -68,7 +68,7 @@ model_name = st.selectbox(
 def null(x): return x.empty if type(x) is pd.DataFrame else not x 
 
 if model_name and not null(df):
-  model = pickle.load(open(f'Models/{model_name}.pickle', 'rb'))
+  model = pickle.load(open(f'models/{model_name}.pickle', 'rb'))
 
   transformer = pickle.load(open('models/PolynomialFeatures.pickle', 'rb'))
 
