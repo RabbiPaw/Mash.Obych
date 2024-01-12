@@ -58,7 +58,7 @@ st.button("Сброс своей базы данных", type="primary")
 
 st.button("Добавить данные в собственную базу данных")
 
-if st.buuton("Добавить данные в собственную базу данных"):
+if st.button("Добавить данные в собственную базу данных"):
     data = [price,latitude,longitude,bathrooms,status,furnished_status]
     df.loc[len(df.index)] = data
 
