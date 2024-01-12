@@ -3,8 +3,15 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import pickle
 
-def test_model(x, y, model, transformer = None):
-    x = x if not transformer else transformer.fit_transform(x)
+def test_model(X,Y,x, y, model, transformer = None):
+
+    X = X if not transformer else transformer.fit_transform(X)
+    
+    x_tr, x_test, y_tr, y_test = train_test_split(
+        X, Y, test_size=0.2, random_state=42
+    )
+    
+    model = model.fit(x_tr, y_tr)
     
     y_pred = model.predict(x)
 
@@ -72,10 +79,11 @@ if model_name and not null(df):
 
   if column:
     st.markdown('Идёт обучение модели...')
-  
+    df_train = pd.read_csv("data/DataSet3_Ready.csv")
+    X, Y = df_train.drop(column,axis=1), df_train[column]
     x, y = df.drop(column,axis=1), df[column]
 
-    result = test_model(x,y,model) if model_name != 'LinearRegressor' else test_model(x,y,model,transformer)
+    result = test_model(X,Y,x,y,model) if model_name != 'LinearRegressor' else test_model(X,Y,x,y,model,transformer)
 
     st.markdown('Обучение завершено!')
 
