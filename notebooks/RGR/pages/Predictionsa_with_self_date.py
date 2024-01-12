@@ -59,7 +59,13 @@ model_name = st.selectbox(
 
 def null(x): return x.empty if type(x) is pd.DataFrame else not x 
 if st.button("Предсказать"):
-    df =np.array([[price,latitude,longitude,bathrooms,status,furnished_status]])
+    df = pd.DataFrame({"price":price,
+                       "latitude":latitude,
+                       "longitude":longitude,
+                       "bathrooms":bathrooms,
+                       "status":status,
+                       "furnished_status":furnished_status})
+    
     if model_name and not null(df):
       model = pickle.load(open(f'models/{model_name}.pickle', 'rb'))
 
