@@ -59,6 +59,7 @@ model_name = st.selectbox(
 )
 
 def null(x): return x.empty if type(x) is pd.DataFrame else not x 
+    
 if st.button("Предсказать"):
     df = pd.DataFrame({"price":[price],
                        "latitude":[latitude],
@@ -83,16 +84,12 @@ if st.button("Предсказать"):
     
         result = test_model(x,y,model) if model_name != 'LinearRegressor' else test_model(x,y,model,transformer)
     
-        st.markdown('Обучение завершено!')
+        st.write('Обучение завершено!')
     
-        st.markdown(
+        st.write(
           f'''
           ### Результаты {model_name}: 
           {result} 
           '''
         )
-
-
-
-        
-        
+          
