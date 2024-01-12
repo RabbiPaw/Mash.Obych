@@ -14,6 +14,8 @@ def test_model(x, y, model, transformer = None):
 
     return metrics(y_test, y_pred)
 
+st.set_page_config(page_title = "Предсказание по вашим данным")
+st.title('Предсказание моделей по вашим данным')
 
 if st.button("Создать пустую базу данных"):
     df = pd.DataFrame({"price": [],
@@ -22,9 +24,6 @@ if st.button("Создать пустую базу данных"):
                     "bathrooms": [],
                     "status": [],
                     "furnished_status": []})
-
-st.set_page_config(page_title = "Предсказание по вашим данным")
-st.title('Предсказание моделей по вашим данным')
 
 price = st.number_input("Введите цену")
 
