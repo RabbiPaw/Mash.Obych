@@ -65,9 +65,9 @@ model_name = st.selectbox(
 def null(x): return x.empty if type(x) is pd.DataFrame else not x 
 
 if model_name and not null(df):
-  model = pickle.loads(open(f'models/{model_name}.pickle','rb'))
+  model = pickle.loads(open(f'models/{model_name}.pickle'))
 
-  transformer = pickle.loads(open('models/PolynomialFeatures.pickle', 'rb'))
+  transformer = pickle.loads(open('models/PolynomialFeatures.pickle'))
 
   column = st.selectbox(
     'Выберите целевую переменную', [None] + df.columns.to_list()
